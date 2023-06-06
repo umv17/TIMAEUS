@@ -1,0 +1,39 @@
+# env
+.env
+env
+venv
+
+# logs
+logs
+
+# cache
+__pycache__
+*.pyc
+
+# static, media
+static
+doc
+minio
+
+# migrations
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+
+# other
+.idea
+
+/node_modules
+/.idea
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+*.log*
+
+
