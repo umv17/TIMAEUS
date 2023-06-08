@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - databasestore:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+    ports:
+      - "5432:5432"
+
+  minio:
+    image: minio/minio
+    ports:
+      - "${MINIO_PORT}:9000"
+      - "${MINIO_CONSOLE_PORT}:9090"
+    volumes:
+      - minio_data:/data
+      - minio_config:/root/.minio
+    command: server /data --console-address '0.0.0.0:9090'
+    env_file:
+      - ./.env
+    restart: always
+
+volumes:
+  databasestore:
+  minio_data:
+  minio_config:
